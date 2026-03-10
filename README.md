@@ -172,3 +172,47 @@ For additional details, please refer to the blog post [Hello DCO, Goodbye CLA: S
 ## License
 
 The Spring PetClinic sample application is released under version 2.0 of the [Apache License](https://www.apache.org/licenses/LICENSE-2.0).
+
+
+
+========================================================================================================================
+
+## SE333 Kyle Eberhart -- Online Asynch -- FINAL 
+
+# SE333 Software Agents Project
+
+This repository was adapted from the Spring Petclinic sample project for the SE333 Software Agents final project.
+
+Original tests were removed to allow an automated testing agent to generate new unit tests and improve code coverage iteratively.
+
+## Testing Agent
+
+The automated testing workflow is defined in:
+
+.github/prompts/tester.prompt.md
+
+The agent performs the following steps:
+
+1. Inspect selected application classes
+2. Generate JUnit tests
+3. Run Maven tests
+4. Analyze JaCoCo coverage reports
+5. Generate additional tests to improve coverage
+
+## Coverage Iteration Log
+
+Coverage improvements are recorded in:
+
+docs/coverage-iteration-log.md
+
+## Demo
+
+A demonstration walkthrough is available in:
+
+docs/demo-script.md
+
+
+
+
+
+
