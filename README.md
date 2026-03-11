@@ -97,6 +97,37 @@ Limiting scope allowed the agent to focus on deeper coverage improvements instea
 
 # System Architecture
 
+## MCP Architecture and Tooling
+
+This project follows a **prompt-driven, tool-augmented testing workflow** inspired by the Model Context Protocol (MCP) approach to software agents. Instead of generating tests in a single step, the workflow allows the agent to interact with development tools, analyze results, and iteratively improve the test suite.
+
+The testing process uses a feedback loop where tooling provides measurable signals that guide future test generation. In this project, the agent workflow performs the following cycle:
+
+Prompted Agent
+→ Generate Tests
+→ Run Maven Test Suite
+→ Produce JaCoCo Coverage Report
+→ Review Coverage Results
+→ Generate Improved Tests
+
+By incorporating tool output into the workflow, the agent can make more informed decisions about where new tests are needed. This allows the testing strategy to improve over multiple iterations rather than relying on one-shot test generation.
+
+### Tooling Responsibilities
+
+**Prompt File (`.github/prompts/tester.prompt.md`)**
+Defines the agent’s behavior, testing strategy, and iteration instructions.
+
+**Maven**
+Compiles the project and executes the test suite to verify that generated tests run successfully.
+
+**JaCoCo**
+Produces coverage reports that highlight untested lines, methods, and branches in the codebase.
+
+**Human Developer**
+Provides oversight of the workflow, constrains the testing scope, validates generated tests, and refines the testing strategy when necessary.
+
+
+
 The project follows an **iterative test improvement cycle** driven by coverage feedback.
 
 Workflow:
